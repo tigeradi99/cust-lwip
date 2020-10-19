@@ -40,7 +40,6 @@ set(lwipcore_SRCS
     ${LWIP_DIR}/src/core/mem.c
     ${LWIP_DIR}/src/core/memp.c
     ${LWIP_DIR}/src/core/netif.c
-    ${LWIP_DIR}/src/core/pbuf.c
     ${LWIP_DIR}/src/core/raw.c
     ${LWIP_DIR}/src/core/stats.c
     ${LWIP_DIR}/src/core/sys.c
