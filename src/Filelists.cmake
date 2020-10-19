@@ -44,12 +44,6 @@ set(lwipcore_SRCS
     ${LWIP_DIR}/src/core/raw.c
     ${LWIP_DIR}/src/core/stats.c
     ${LWIP_DIR}/src/core/sys.c
-    ${LWIP_DIR}/src/core/altcp.c
-    ${LWIP_DIR}/src/core/altcp_alloc.c
-    ${LWIP_DIR}/src/core/altcp_tcp.c
-    ${LWIP_DIR}/src/core/tcp.c
-    ${LWIP_DIR}/src/core/tcp_in.c
-    ${LWIP_DIR}/src/core/tcp_out.c
     ${LWIP_DIR}/src/core/timeouts.c
     ${LWIP_DIR}/src/core/udp.c
 )
@@ -86,7 +80,6 @@ set(lwipapi_SRCS
     ${LWIP_DIR}/src/api/netdb.c
     ${LWIP_DIR}/src/api/netifapi.c
     ${LWIP_DIR}/src/api/sockets.c
-    ${LWIP_DIR}/src/api/tcpip.c
 )
 
 # Files implementing various generic network interface functions
