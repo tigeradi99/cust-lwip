@@ -125,7 +125,7 @@ volatile u8_t pbuf_free_ooseq_pending;
 static
 #endif /* !NO_SYS */
 void
-/**pbuf_free_ooseq(void)
+pbuf_free_ooseq(void)
 {
   struct tcp_pcb *pcb;
   SYS_ARCH_SET(pbuf_free_ooseq_pending, 0);
@@ -133,25 +133,24 @@ void
   for (pcb = tcp_active_pcbs; NULL != pcb; pcb = pcb->next) {
     if (pcb->ooseq != NULL) {
       /** Free the ooseq pbufs of one PCB only */
-/**      LWIP_DEBUGF(PBUF_DEBUG | LWIP_DBG_TRACE, ("pbuf_free_ooseq: freeing out-of-sequence pbufs\n"));
+      LWIP_DEBUGF(PBUF_DEBUG | LWIP_DBG_TRACE, ("pbuf_free_ooseq: freeing out-of-sequence pbufs\n"));
       tcp_free_ooseq(pcb);
       return;
     }
   }
 }
-*/
 
-//#if !NO_SYS
+#if !NO_SYS
 /**
  * Just a callback function for tcpip_callback() that calls pbuf_free_ooseq().
  */
-//static void
-//pbuf_free_ooseq_callback(void *arg)
-//{
-//  LWIP_UNUSED_ARG(arg);
-//  pbuf_free_ooseq();
-//}
-//#endif /* !NO_SYS */
+static void
+pbuf_free_ooseq_callback(void *arg)
+{
+  LWIP_UNUSED_ARG(arg);
+  pbuf_free_ooseq();
+}
+#endif /* !NO_SYS */
 
 /** Queue a call to pbuf_free_ooseq if not already queued. */
 static void
